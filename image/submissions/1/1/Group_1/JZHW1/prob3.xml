@@ -1,0 +1,16 @@
+<?xml version="1.0"?>
+<!--  prob3.xml
+      Jing Zhao
+      CSC 626: Web Technologies
+      Assignment 1
+      2/8/2012 -->
+<!DOCTYPE pet [
+   <!ELEMENT pet EMPTY>
+   <!ATTLIST pet picfile ENTITY #REQUIRED>
+   <!ENTITY lassie_pic SYSTEM "lassie.jpg" NDATA JPG>
+   <!NOTATION JPG SYSTEM "image/jpg">
+   <!ATTLIST pet movfile ENTITY #IMPLIED>
+   <!ENTITY lassie_mov SYSTEM "lassie.mp4" NDATA MP4>
+   <!NOTATION MP4 SYSTEM "vedio/mpeg4">
+]>
+<pet picfile="lassie_pic" movfile="lassie_mov" />     

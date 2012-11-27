@@ -1,0 +1,105 @@
+<?xml version="1.0"?>
+<!--  graphs.xml
+      Jing Zhao
+      CSC 626: Web Technologies
+      Assignment 3
+      3/5/2012 -->
+      
+<?xml-stylesheet typle="text/xsl" href="graphs.xsl"?>
+
+<charts num_charts="5">
+ 
+   <chart type="pie" width="800" height="600"   align="left" id="chart1_div">
+       <title>How Much Pizza I Ate Last Night</title>
+   
+       <columns>
+            <column name="Topping" type="string"/>
+            <column name="Slices"  type="number"/>      
+       </columns>
+   
+       <rows>
+            <row name="Mushrooms" value="3" />
+            <row name="Onions" value="1" />  
+            <row name="Olives" value="1" />       
+            <row name="Zucchini" value="1" /> 
+            <row name="Pepperoni" value="2" />         
+       </rows>
+   </chart>
+   
+   <chart type="bar" width="800" height="600"   align="left" id="chart2_div">
+       <title>Company Performance</title>
+   
+       <columns>
+            <column name="Year" type="string"/>
+            <column name="Sales"  type="number"/>     
+            <column name="Expenses"  type="number"/>  
+       </columns>
+   
+       <rows>
+            <row name="2008" value1="1000" value2="300"/>
+            <row name="2009" value1="1200" value2="650"/>
+            <row name="2010" value1="900" value2="230"/>
+         
+       </rows>
+   </chart>
+   
+   <chart type="bubble" width="800" height="600"   align="left" id="chart3_div">
+       <title>Correlation between life expectancy, fertility rate and population of some world countries (2010)</title>
+   
+       <columns>
+            <column name="ID" type="string"/>
+            <column name="Life Expectancy"  type="number"/>     
+            <column name="Fertility Rate"  type="number"/> 
+            <column name="Region" type="string"/>
+            <column name="Population"  type="number"/>  
+       </columns>
+   
+       <rows>
+            <row name1="CAN" value1="80.66" value2="1.67" name2="North America" value3="33739900"/>
+            <row name1="DEU" value1="79.84" value2="1.36" name2="Europe" value3="81902307"/>
+            <row name1="DNK" value1="78.6" value2="1.84" name2="Europe" value3="5523095"/>
+            <row name1="EGY" value1="72.73" value2="2.78" name2="Middle East" value3="79716203"/>
+            <row name1="GBR" value1="80.05" value2="2" name2="Europe" value3="61801570"/>
+            <row name1="IRN" value1="72.49" value2="1.7" name2="Middle East" value3="73137148"/>
+            <row name1="IRQ" value1="68.09" value2="4.77" name2="Middle East" value3="31090763"/>
+            <row name1="ISR" value1="81.55" value2="2.96" name2="Middle East" value3="7485600"/>
+            <row name1="RUS" value1="68.6" value2="1.54" name2="Europe" value3="141850000"/>
+            <row name1="USA" value1="78.09" value2="2.05" name2="North America" value3="307007000"/>
+         
+       </rows>
+   </chart>
+
+   <chart type="geo" width="800" height="600"   align="left" id="chart4_div">
+       <title>World Wide</title>
+   
+       <columns>
+            <column name="Country" type="string"/>
+            <column name="Popularity"  type="number"/>      
+       </columns>
+   
+       <rows>
+            <row name="Germany" value="200" />
+            <row name="United States" value="300" />  
+            <row name="Brazil" value="400" />       
+            <row name="Canada" value="500" /> 
+            <row name="France" value="600" /> 
+            <row name="RU" value="700" />         
+       </rows>
+   </chart>
+   
+   <chart type="gauge" width="600" height="300"   align="left" id="chart5_div">
+       <title>Resource Utilization</title>
+   
+       <columns>
+            <column name="Label" type="string"/>
+            <column name="Value"  type="number"/>      
+       </columns>
+   
+       <rows>
+            <row name="Memory" value="80" />
+            <row name="CPU" value="55" />  
+            <row name="Network" value="68" />                
+       </rows>
+   </chart>
+ 
+</charts>

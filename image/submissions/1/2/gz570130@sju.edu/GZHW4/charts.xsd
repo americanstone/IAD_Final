@@ -1,0 +1,107 @@
+<?xml version="1.0"?>
+<!--  charts.xsd
+	  xml schema for charts_xsd.xml
+      Jing Zhao
+      CSC 626: Web Technologies
+      Assignment 4
+      4/4/2012 -->
+      
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+	<!-- complex type: rowType -->
+	<xsd:complexType name="rowType">
+		<xsd:sequence>
+			<xsd:element name="row" maxOccurs="unbounded">
+				<xsd:complexType>
+					<xsd:attribute name="name" type="xsd:string" />
+					<xsd:attribute name="value" type="xsd:integer" />
+					<xsd:attribute name="name1" type="xsd:string" />
+					<xsd:attribute name="value1" type="xsd:decimal"/>
+					<xsd:attribute name="name2" type="xsd:string" />
+					<xsd:attribute name="value2" type="xsd:decimal"/>
+					<xsd:attribute name="value3" type="xsd:decimal"/>
+				</xsd:complexType>
+			</xsd:element>
+		</xsd:sequence>
+	</xsd:complexType>
+	
+	<!-- complex type: chartType -->
+	<xsd:complexType name="chartType">
+		<xsd:sequence>
+			<xsd:element name="title" type="xsd:string" />
+			<xsd:element name="columns">
+				<xsd:complexType>
+					<xsd:sequence>
+						<xsd:element name="column" maxOccurs="unbounded">
+							<xsd:complexType>
+								<xsd:attribute name="name" type="xsd:string" />
+								<xsd:attribute name="type">
+									<xsd:simpleType>
+										<xsd:restriction base="xsd:string">
+											<xsd:enumeration value="string" />
+											<xsd:enumeration value="number" />
+										</xsd:restriction>
+									</xsd:simpleType>
+								</xsd:attribute>
+							</xsd:complexType>
+						</xsd:element>
+					</xsd:sequence>
+				</xsd:complexType>
+			</xsd:element>
+			<xsd:element name="rows" type="rowType" />
+		</xsd:sequence>
+		<xsd:attribute name="type">
+			<xsd:simpleType>
+				<xsd:restriction base="xsd:string">
+					<xsd:enumeration value="pie" />
+					<xsd:enumeration value="bar" />
+					<xsd:enumeration value="bubble" />
+					<xsd:enumeration value="geo" />
+					<xsd:enumeration value="gauge" />
+				</xsd:restriction>
+			</xsd:simpleType>
+		</xsd:attribute>
+		<xsd:attribute name="width">
+			<xsd:simpleType>
+				<xsd:restriction base="xsd:integer">
+					<xsd:minInclusive value="10" />
+					<xsd:maxInclusive value="2140" />
+				</xsd:restriction>
+			</xsd:simpleType>
+		</xsd:attribute>
+		<xsd:attribute name="height">
+			<xsd:simpleType>
+				<xsd:restriction base="xsd:integer">
+					<xsd:minInclusive value="10" />
+					<xsd:maxInclusive value="2140" />
+				</xsd:restriction>
+			</xsd:simpleType>
+		</xsd:attribute>
+		<xsd:attribute name="align">
+			<xsd:simpleType>
+				<xsd:restriction base="xsd:string">
+					<xsd:enumeration value="left" />
+					<xsd:enumeration value="center" />
+					<xsd:enumeration value="right" />
+				</xsd:restriction>
+			</xsd:simpleType>
+		</xsd:attribute>
+		<xsd:attribute name="id">
+			<xsd:simpleType>
+				<xsd:restriction base="xsd:string">
+					<xsd:pattern value="[a-z A-Z]{1,}.{0,}" />
+				</xsd:restriction>
+			</xsd:simpleType>
+		</xsd:attribute>
+	</xsd:complexType>
+
+	<!-- root element charts -->
+	<xsd:element name="charts">
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:element name="chart" type="chartType" maxOccurs="unbounded" />
+			</xsd:sequence>
+			<xsd:attribute name="num_charts" type="xsd:integer"
+				use="required" />
+		</xsd:complexType>
+	</xsd:element>
+</xsd:schema>

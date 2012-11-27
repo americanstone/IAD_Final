@@ -1,0 +1,12 @@
+<?xml version="1.0"?>
+<!--  prob1.xml
+      Jing Zhao
+      CSC 626: Web Technologies
+      Assignment 1
+      2/8/2012 -->
+<!-- content can be any number of br tags mixed with any text in any order -->      
+<!DOCTYPE greeting [
+	<!ELEMENT greeting (#PCDATA | br)*>
+	<!ELEMENT br EMPTY>
+]>
+<greeting>Hello<br/>Bye<br/><br/></greeting>

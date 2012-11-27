@@ -1,0 +1,45 @@
+<?xml version="1.0"?>
+<!--  prob2.xml
+      Jing Zhao
+      CSC 626: Web Technologies
+      Assignment 1
+      2/8/2012 -->
+<!DOCTYPE biography SYSTEM "prob2.dtd">
+<biography>
+	<paragraph>
+		<definition>
+			<person born="1955/02/24" died="2011/10/05">
+				<first_name>
+					Steve
+				</first_name>
+				<last_name>
+					Jobs
+				</last_name>
+			</person>
+		</definition>
+		<definition>
+			<profession>
+				Apple CEO
+			</profession>
+			<footnote source="published">
+				Jobs Biography
+			</footnote>
+		</definition>
+	</paragraph>
+	<paragraph>
+		<emphasize>
+			<date>
+				<month>
+					Feb.
+				</month>
+				<day>
+					2nd
+				</day>
+				<year>
+					2006
+				</year>
+			</date>
+		</emphasize>
+	</paragraph>
+	<image source="jobs.jpg" width="20px" height="30px" />
+</biography>

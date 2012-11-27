@@ -1,0 +1,73 @@
+Version 1 - Insertion Sort: Run-Times over 50 test runs
+Input Size     Best-Case     Worst-Case     Average-Case
+N = 10000	0		179		3
+N = 20000	0		500		10
+N = 40000	0		2005		40
+
+Version 2 - Standard Merge Sort: Run-Times over 50 test runs
+Input Size     Best-Case     Worst-Case     Average-Case
+N = 10000	3		136		6
+N = 20000	6		616		19
+N = 40000	13		2079		57
+
+Version 3 - Advanced Merge Sort 15: Run-Times over 50 test runs
+Input Size     Best-Case     Worst-Case     Average-Case
+N = 10000	1		133		4
+N = 20000	3		534		14
+N = 40000	8		2109		50
+
+Version 4 - Advanced Merge Sort 30: Run-Times over 50 test runs
+Input Size     Best-Case     Worst-Case     Average-Case
+N = 10000	1		133		4
+N = 20000	3		503		13
+N = 40000	7		2063		50
+
+Version 5 - Advanced Merge Sort 45: Run-Times over 50 test runs
+Input Size     Best-Case     Worst-Case     Average-Case
+N = 10000	1		125		3
+N = 20000	2		498		13
+N = 40000	6		2045		48
+
+Version 5 - Quick Sort: Run-Times over 50 test runs
+Input Size     Best-Case     Worst-Case     Average-Case
+N = 10000	5		407		339
+N = 20000	5		3069		1719
+N = 40000	10		7475		5448
+
+
+
+Version 1 - Insertion Sort: Run-Times over 50 test runs
+Input Size     Best-Case     Worst-Case     Average-Case
+N = 10000	0		223		4
+N = 20000	0		586		11
+N = 40000	0		2447		49
+
+Version 2 - Standard Merge Sort: Run-Times over 50 test runs
+Input Size     Best-Case     Worst-Case     Average-Case
+N = 10000	3		169		7
+N = 20000	6		613		20
+N = 40000	13		2495		67
+
+Version 3 - Merge Sort for subarrray greater than 15, Insertion Sort for subarray less than 15: Run-Times over 50 test runs
+Input Size     Best-Case     Worst-Case     Average-Case
+N = 10000	1		144		5
+N = 20000	3		600		16
+N = 40000	8		2485		60
+
+Version 4 - Merge Sort for subarrray greater than 30, Insertion Sort for subarray less than 30: Run-Times over 50 test runs
+Input Size     Best-Case     Worst-Case     Average-Case
+N = 10000	1		172		5
+N = 20000	3		607		16
+N = 40000	7		2409		57
+
+Version 5 - Merge Sort for subarrray greater than 45, Insertion Sort for subarray less than 45:: Run-Times over 50 test runs
+Input Size     Best-Case     Worst-Case     Average-Case
+N = 10000	1		163		5
+N = 20000	2		680		17
+N = 40000	6		2428		57
+
+Version 5 - Quick Sort: Run-Times over 50 test runs
+Input Size     Best-Case     Worst-Case     Average-Case
+N = 10000	6		789		428
+N = 20000	4		3131		1530
+N = 40000	10		8399		5946

@@ -1,0 +1,138 @@
+
+/** 
+ * Slideshow style for all courses
+ */
+#slideshow {
+	height:263px;
+	position:relative;
+}
+#slideshow #slidesContainer {
+  margin:0 auto;
+  width:960px;
+  height:263px;
+  overflow:auto; /* allow scrollbar */
+  position:relative;
+}
+#slideshow #slidesContainer .slide {
+  margin:0 auto;
+  width:240px;
+  height:263px;
+  border: 2px solid #EFE6D7;
+}
+
+/** 
+ * Slideshow controls style rules.
+ */
+.control {
+  display:block;
+  width:39px;
+  height:263px;
+  text-indent:-10000px;
+  position:absolute;
+  cursor: pointer;
+}
+#leftControl {
+  top:0;
+  left:0;
+  background:transparent url(../image/control_left.jpg) no-repeat 0 0;
+}
+#rightControl {
+  top:0;
+  right:0;
+  background:transparent url(../image/control_right.jpg) no-repeat 0 0;
+}
+
+#all-courses {
+  margin: 0 auto;
+  width:1040px;
+}
+#all-courses h1 {
+  display:block;
+  width:960px;
+  height:114px;
+  
+  text-indent: -10000px;
+}
+.slide h2, .slide p {
+
+}
+.slide h2 {
+  font:italic 24px Georgia, "Times New Roman", Times, serif;
+  color:#ccc;
+  letter-spacing:-1px;
+}
+.slide img {
+  float:right;
+}
+
+.all-courses-text{	
+	text-align: center;
+	margin: 0 auto;
+	margin-top: 5px;
+}
+
+/**
+ * style for my courses
+ **/
+ 
+#my-courses {
+  margin:0 auto;
+  width:1040px;
+}
+#my-courses h1 {
+  display:block;
+  width:960px;
+  height:114px;
+  
+  text-indent: -10000px;
+}
+#my-courses-row-container{
+    border-top: solid grey 1px;
+    margin-top: 8px;
+    margin-bottom: 10px;
+    width: 1040px;
+}
+#my-courses-row {
+    height: 130px;
+    border-bottom: solid grey 1px;
+}
+
+course-content{
+    margin-top: 30px;
+    background-color: #E8E8E8;
+}
+
+.course-content
+     {
+     margin-top: 30px;
+     width:        100%;
+     visibility:   visible;
+
+     --border-style: double;
+    -- background:   white;
+     --opacity:      0.9;
+     --border-color: #BA0738;
+     --color:        black;
+     }
+/*#my-course-img {
+	position: absolute;
+	left: 30px;
+	width: 180px;
+	float: left;
+	margin-top:15px;
+	
+}
+
+#my-course-text {
+	position: absolute;
+	right: 230px;
+	width: 500px;
+	height: 130px;
+	text-align: left;
+}
+#my-course-button {
+	position: absolute;
+	right: 30px;
+	width: 200px;
+	height: 130px;
+}*/

@@ -1,0 +1,74 @@
+.assignment-table{
+	margin:0 auto;
+	width: 95%;
+	margin-top:20px;
+	margin-bottom:20px;
+}
+.assignment-table tr th{
+	text-align: left;
+	border: solid #DDDDDD 1px;
+	height: 35px;
+}
+
+.assignment-table tr td{
+	border: solid #DDDDDD 1px;
+	height: 35px;
+}
+
+.assignment-table tr td.width-200px-column {
+	width: 200px;
+}
+
+.assignment-table tr th.width-200px-column  {
+	width: 200px;
+}
+
+.assignment-table tr td.width-80px-column  {
+	width: 80px;
+}
+
+.assignment-table tr th.width-80px-column  {
+	width: 80px;
+}
+#instruction-data{
+	margin: 10px;
+	height: 100%;
+	overflow:auto;
+}
+
+#instruction-data table{
+
+	font-size: 15px;
+	padding: 5px;
+}
+
+#instruction-data table tr{
+	border-bottom:solid #DDDDDD 1px;
+	height: 30px;
+	
+}
+#instruction-data table tr th{
+
+	width: 30%;
+	vertical-align: top;
+	padding-top: 5px;
+}
+#instruction-data table tr td{
+
+	vertical-align: top;
+	padding-top: 5px;
+}
+
+--a.create-assignment-window {
+	height: 30px;
+	border-radius: 5px;
+	font: bold 15px Trebuchet, "Trebuchet MS";
+	padding: 0 17px 2px;
+	color: white;
+	background: orange;
+}
+
+--a.create-assignment-window:hover {
+	color: #E25500!important;
+}
+

@@ -1,0 +1,1 @@
+<?php	/* 	 * log off the user	 */	session_start();	unset($_SESSION['name']);	unset($_SESSION['role']);	unset($_SESSION['email']);	//redirect to default page	header("Location: http://localhost/sbls/default.php");?>

@@ -1,0 +1,40 @@
+div.row {
+	border-bottom: solid grey 1px;
+        width: 85%;
+        float:left;
+        
+}
+div.leftrow{
+    width:7.5%;
+    float:left;
+    visibility:hidden;
+}
+div.main-content {
+	height: 100%;
+}
+div#title-container {
+	margin-top: 20px;
+	padding-left: 100px;
+	margin-bottom: 20px;
+}
+div#main-content-left{
+	float: left;
+	width: 50%;
+	border-right: solid grey 1px;
+}
+div#main-content-right{
+	float: right;
+	width: 49%;
+}
+
+table#signup-table, table#signin-table {	
+	margin-top: 20px;
+	
+}
+table#signup-table {
+	width: 50%;
+}
+table#signin-table {
+	width: 40%;
+	
+}

@@ -1,0 +1,103 @@
+#all-submissions{
+    margin-top: 20px;
+    border :2px #ddd solid;
+}
+#all-submissions td{
+    border :2px #ddd solid;
+    padding: 10px;
+    text-align: center;
+}
+#directory-data ul {
+	list-style-type: none;
+	padding-left: 15px;
+}
+
+#directory-data a, #directory-data li {
+	text-decooration: none;
+	padding-botton: 3px;
+}
+
+
+.bordered-box {
+	border: 2px #ddd solid;
+	margin-top: 10px;
+	margin-bottom: 10px;
+} 
+
+#editor-menus {
+	border-bottom: 2px #ddd solid;
+}
+
+#directory-data {
+	border-right: 2px #ddd solid;
+}
+
+pre {
+	margin:0 auto;
+}
+
+#file-data table {
+	border-collapse: collapse;
+}
+
+#file-data table tbody tr {
+	margin-top: 5px;
+	margin-bottom: 5px;
+}
+#file-data table tbody td {
+	--border-right: solid #DDDDDD 1px;
+	padding: 5px;
+}
+
+a{	
+	color: black;
+}
+
+a.comment{
+	color: blue;
+}
+
+.textbox textarea {
+	height: 90px;
+}
+table.comments {
+	padding: 5px;
+}
+
+#comment-details tr{
+	border: solid 1px #DDDDDD;
+	height: 30px;
+}
+
+#comment-details tr th{
+	text-align: left;
+	border: solid 1px #DDDDDD;
+}
+
+#comment-details tr td{
+	text-align: left;
+	border: solid 1px #DDDDDD;
+}
+
+#directory-data {
+	width: 17.8%;
+	height: 800px;
+	float:left;
+	overflow: auto;
+	
+	
+}
+#file-data {
+	width: 82%;
+	height: 800px;
+	overflow: auto;
+}
+
+#comment-details{
+	position: absolute;
+	float: letf;
+	width:600px;
+	left: -99999px;
+	background: #FCE9D9;
+	
+}

@@ -1,0 +1,390 @@
+<?xml version="1.0"?>
+<plantInfo>
+   <!-- ************************************ -->
+   <state code="PA">
+	<plant>
+		<common>bloodroot</common>
+		<botanical>sanguinaria canadensis</botanical>
+		<zone>4</zone>
+		<light>mostly shady</light>
+		<price>$2.44</price>
+		<availability>031512</availability>
+	</plant>
+	<plant>
+		<common>columbine</common>
+		<botanical>aquilegia canadensis</botanical>
+		<zone>5</zone>
+		<light>mostly shady</light>
+		<price>$9.37</price>
+		<availability>030612</availability>
+	</plant>
+	<plant>
+		<common>marsh marigold</common>
+		<botanical>caltha palustris</botanical>
+		<zone>6</zone>
+		<light>mostly sunny</light>
+		<price>$6.81</price>
+		<availability>051712</availability>
+	</plant>
+	<plant>
+		<common>cowslip</common>
+		<botanical>caltha palustris</botanical>
+		<zone>4</zone>
+		<light>mostly shady</light>
+		<price>$9.90</price>
+		<availability>030612</availability>
+	</plant>
+	<plant>
+		<common>dutchman's-breeches</common>
+		<botanical>dicentra cucullaria</botanical>
+		<zone>5</zone>
+		<light>mostly shady</light>
+		<price>$6.44</price>
+		<availability>012012</availability>
+	</plant>
+	<plant>
+		<common>ginger, wild</common>
+		<botanical>asarum canadense</botanical>
+		<zone>3</zone>
+		<light>mostly shady</light>
+		<price>$9.03</price>
+		<availability>041812</availability>
+	</plant>
+	<plant>
+		<common>hepatica</common>
+		<botanical>hepatica americana</botanical>
+		<zone>4</zone>
+		<light>mostly shady</light>
+		<price>$4.45</price>
+		<availability>012612</availability>
+	</plant>
+	<plant>
+		<common>liverleaf</common>
+		<botanical>hepatica americana</botanical>
+		<zone>6</zone>
+		<light>mostly shady</light>
+		<price>$3.08</price>
+		<availability>010212</availability>
+	</plant>
+	<plant>
+		<common>cardinal flower</common>
+		<botanical>lobelia cardinalis</botanical>
+		<zone>5</zone>
+		<light>shade</light>
+		<price>$3.02</price>
+		<availability>022212</availability>
+	</plant>
+	<plant>
+		<common>snakeroot</common>
+		<botanical>cimicifuga</botanical>
+		<zone>6</zone>
+		<light>shade</light>
+		<price>$5.63</price>
+		<availability>071112</availability>
+	</plant>	
+	<plant>
+		<common>jack-in-the-pulpit</common>
+		<botanical>arisaema triphyllum</botanical>
+		<zone>4</zone>
+		<light>mostly shady</light>
+		<price>$3.23</price>
+		<availability>020112</availability>
+	</plant>
+	<plant>
+		<common>mayapple</common>
+		<botanical>podophyllum peltatum</botanical>
+		<zone>3</zone>
+		<light>mostly shady</light>
+		<price>$2.09</price>
+		<availability>060512</availability>
+	</plant>
+   </state>
+   
+   <!-- ************************************ -->
+   <state code="TX">
+	<plant>
+		<common>phlox, woodland</common>
+		<botanical>phlox divaricata</botanical>
+		<zone>8</zone>
+		<light>sun or shade</light>
+		<price>$2.80</price>
+		<availability>012212</availability>
+	</plant>
+	<plant>
+		<common>phlox, blue</common>
+		<botanical>phlox divaricata</botanical>
+		<zone>9</zone>
+		<light>sun or shade</light>
+		<price>$5.59</price>
+		<availability>021612</availability>
+	</plant>
+	<plant>
+		<common>spring-beauty</common>
+		<botanical>claytonia virginica</botanical>
+		<zone>9</zone>
+		<light>mostly shady</light>
+		<price>$6.59</price>
+		<availability>020112</availability>
+	</plant>
+	<plant>
+		<common>marsh marigold</common>
+		<botanical>caltha palustris</botanical>
+		<zone>8</zone>
+		<light>mostly sunny</light>
+		<price>$6.81</price>
+		<availability>051712</availability>
+	</plant>	
+	<plant>
+		<common>trillium</common>
+		<botanical>trillium grandiflorum</botanical>
+		<zone>2</zone>
+		<light>sun or shade</light>
+		<price>$3.90</price>
+		<availability>042009</availability>
+	</plant>
+	<plant>
+		<common>wake robin</common>
+		<botanical>trillium grandiflorum</botanical>
+		<zone>3</zone>
+		<light>sun or shade</light>
+		<price>$3.20</price>
+		<availability>022112</availability>
+	</plant>
+	<plant>
+		<common>violet, dog-tooth</common>
+		<botanical>erythronium americanum</botanical>
+		<zone>8</zone>
+		<light>shade</light>
+		<price>$9.04</price>
+		<availability>020112</availability>
+	</plant>
+	<plant>
+		<common>trout lily</common>
+		<botanical>erythronium americanum</botanical>
+		<zone>9</zone>
+		<light>shade</light>
+
+		<price>$6.94</price>
+		<availability>032412</availability>
+	</plant>
+	<plant>
+		<common>snakeroot</common>
+		<botanical>cimicifuga</botanical>
+		<zone>8</zone>
+		<light>shade</light>
+		<price>$5.63</price>
+		<availability>071112</availability>
+	</plant>	
+	<plant>
+		<common>adder's-tongue</common>
+		<botanical>erythronium americanum</botanical>
+		<zone>8</zone>
+		<light>shade</light>
+		<price>$9.58</price>
+		<availability>041312</availability>
+	</plant>
+	<plant>
+		<common>anemone</common>
+		<botanical>anemone blanda</botanical>
+		<zone>6</zone>
+		<light>mostly shady</light>
+		<price>$8.86</price>
+		<availability>122609</availability>
+	</plant>
+	<plant>
+		<common>cardinal flower</common>
+		<botanical>lobelia cardinalis</botanical>
+		<zone>2</zone>
+		<light>shade</light>
+		<price>$3.02</price>
+		<availability>022212</availability>
+	</plant>	
+	<plant>
+		<common>grecian windflower</common>
+		<botanical>anemone blanda</botanical>
+		<zone>6</zone>
+		<light>mostly shady</light>
+		<price>$9.16</price>
+		<availability>071012</availability>
+	</plant>
+   </state>
+   
+   <!-- ************************************ -->
+   <state code="MD">
+	<plant>
+		<common>bee balm</common>
+		<botanical>monarda didyma</botanical>
+		<zone>4</zone>
+		<light>shade</light>
+		<price>$4.59</price>
+		<availability>050312</availability>
+	</plant>
+	<plant>
+		<common>bergamot</common>
+		<botanical>monarda didyma</botanical>
+		<zone>4</zone>
+		<light>shade</light>
+		<price>$7.16</price>
+		<availability>042712</availability>
+	</plant>
+	<plant>
+		<common>marsh marigold</common>
+		<botanical>caltha palustris</botanical>
+		<zone>4</zone>
+		<light>mostly sunny</light>
+		<price>$6.81</price>
+		<availability>051712</availability>
+	</plant>	
+	<plant>
+		<common>black-eyed susan</common>
+		<botanical>rudbeckia hirta</botanical>
+		<zone>3</zone>
+		<light>sunny</light>
+		<price>$9.80</price>
+		<availability>061812</availability>
+	</plant>
+	<plant>
+		<common>buttercup</common>
+		<botanical>ranunculus</botanical>
+		<zone>4</zone>
+		<light>shade</light>
+		<price>$2.57</price>
+		<availability>061012</availability>
+	</plant>
+	<plant>
+		<common>crowfoot</common>
+		<botanical>ranunculus</botanical>
+		<zone>4</zone>
+		<light>shade</light>
+		<price>$9.34</price>
+		<availability>040312</availability>
+	</plant>
+
+	<plant>
+		<common>butterfly weed</common>
+		<botanical>asclepias tuberosa</botanical>
+		<zone>3</zone>
+		<light>sunny</light>
+		<price>$2.78</price>
+		<availability>063012</availability>
+	</plant>
+	<plant>
+		<common>snakeroot</common>
+		<botanical>cimicifuga</botanical>
+		<zone>2</zone>
+		<light>shade</light>
+		<price>$5.63</price>
+		<availability>071112</availability>
+	</plant>	
+	<plant>
+		<common>cinquefoil</common>
+		<botanical>potentilla</botanical>
+		<zone>3</zone>
+		<light>shade</light>
+
+		<price>$7.06</price>
+		<availability>052512</availability>
+	</plant>
+	<plant>
+		<common>primrose</common>
+		<botanical>oenothera</botanical>
+		<zone>3 - 5</zone>
+		<light>sunny</light>
+		<price>$6.56</price>
+		<availability>013012</availability>
+	</plant>
+	<plant>
+		<common>cardinal flower</common>
+		<botanical>lobelia cardinalis</botanical>
+		<zone>2</zone>
+		<light>shade</light>
+		<price>$3.02</price>
+		<availability>022212</availability>
+	</plant>	
+	<plant>
+		<common>gentian</common>
+		<botanical>gentiana</botanical>
+		<zone>4</zone>
+		<light>sun or shade</light>
+		<price>$7.81</price>
+		<availability>051812</availability>
+	</plant>
+	<plant>
+		<common>blue gentian</common>
+		<botanical>gentiana</botanical>
+		<zone>4</zone>
+		<light>sun or shade</light>
+		<price>$8.56</price>
+		<availability>050212</availability>
+	</plant>
+   </state>
+   
+   <!-- ************************************ -->
+   <state code="ME">
+	<plant>
+		<common>jacob's ladder</common>
+		<botanical>polemonium caeruleum</botanical>
+		<zone>1</zone>
+		<light>shade</light>
+		<price>$9.26</price>
+		<availability>022112</availability>
+	</plant>
+	<plant>
+		<common>greek valerian</common>
+		<botanical>polemonium caeruleum</botanical>
+		<zone>1</zone>
+		<light>shade</light>
+		<price>$4.36</price>
+		<availability>071412</availability>
+	</plant>
+	<plant>
+		<common>marsh marigold</common>
+		<botanical>caltha palustris</botanical>
+		<zone>2</zone>
+		<light>mostly sunny</light>
+		<price>$6.81</price>
+		<availability>051712</availability>
+	</plant>	
+	<plant>
+		<common>california poppy</common>
+		<botanical>eschscholzia californica</botanical>
+		<zone>5</zone>
+		<light>sun</light>
+		<price>$7.09</price>
+		<availability>032712</availability>
+	</plant>
+	<plant>
+		<common>shooting star</common>
+		<botanical>dodecatheon</botanical>
+		<zone>1</zone>
+		<light>mostly shady</light>
+		<price>$8.60</price>
+		<availability>051312</availability>
+	</plant>
+	<plant>
+		<common>snakeroot</common>
+		<botanical>cimicifuga</botanical>
+		<zone>5</zone>
+		<light>shade</light>
+		<price>$5.63</price>
+		<availability>071112</availability>
+	</plant>
+	<plant>
+		<common>dutchman's-breeches</common>
+		<botanical>dicentra cucullaria</botanical>
+		<zone>2</zone>
+		<light>mostly shady</light>
+		<price>$6.44</price>
+		<availability>012012</availability>
+	</plant>
+	<plant>
+		<common>cardinal flower</common>
+		<botanical>lobelia cardinalis</botanical>
+		<zone>1</zone>
+		<light>shade</light>
+		<price>$3.02</price>
+		<availability>022212</availability>
+	</plant>
+   </state>
+   
+</plantInfo>

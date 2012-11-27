@@ -1,0 +1,29 @@
+<?xml version="1.0"?>
+
+<stateInfo>
+   <state code="MD">
+         <name>Maryland</name>
+         <nickname>Free State</nickname>
+         <zone>3</zone> 
+   </state>
+   <state code="ME">
+         <name>Maine</name>
+         <nickname>Pine Tree State</nickname>
+         <zone>1</zone> 
+   </state>
+   <state code="PA">
+          <name>Pennsylvania</name>
+          <nickname>Keystone State</nickname>
+          <zone>5 - 6</zone>            
+   </state>
+   <state code="TX">
+         <name>Texas</name>
+         <nickname>Lone Star State</nickname>
+          <zone>8 - 9</zone>            
+   </state>
+   <state code="ND">
+         <name>North Dakota</name>
+         <nickname>Roughrider State</nickname>
+         <zone>1 - 2</zone>            
+   </state>
+</stateInfo>

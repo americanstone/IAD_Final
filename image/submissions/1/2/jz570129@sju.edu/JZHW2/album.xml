@@ -1,0 +1,60 @@
+<?xml version="1.0"?>
+ 
+<!-- navigational links to all the album pages must appear on bottom of the pages -->
+<!-- every image has the same width and height -->
+<album directory="images" links="bottom">
+ 
+  <!-- there is going to be  two pages in your album -->
+  <pages number="2">
+ 
+       <!-- the first page is to be called page1.html and has a 2 by 3 grid -->
+       <page name="page1.html" rows="2" cols="3"
+                   background_color="pink" title="Labrador is my favorite dog!"
+                   width="250" height="250">
+ 
+               <img src="Labrador_1.jpg">
+                    Cody the Yellow Lab at 14 months old.
+               </img>
+ 
+               <img src="blackLabrador.jpg">
+                      Dozer the black Labrador Retriever at 1 1/2 years old.
+               </img>
+               <img src="LabradorRetrieverMollyChocLabPurebredDog.jpg">
+                    "Molly girl" at 2 Months. Molly is every bit Chocolate Lab,
+				but with non of the horror stories I was warned of!
+               </img> 
+               <img src="Labrador_3.jpg">
+                    Three adorable yellow labrador puppies.
+               </img>
+               <img src="LabPupsKpups5.jpg">
+                    A Chocolate, Yellow and Black Lab Puppy. Photo Courtesy of Sally Kelley, Kelleygreen Labradors.
+               </img>
+               <img src="LABRADORRETRIEVERSMIRAGE.jpg">
+                     Three adorable dogs showing the three Labrador colors.
+               </img>
+       </page>
+ 
+       <!--the first page is to be called page2.html and has a 2 by 2 grid -->
+       <page name="page2.html" rows="2" cols="2"
+                   background_color="orange" title="I love cats"
+                   width="300" height="250">
+ 
+               <img src="myspace-cats-images-0100.jpg">
+                    I love flower
+               </img>
+ 
+               <img src="myspace-cats-images-0160.jpg">
+                     Hi, How are you
+               </img>
+ 
+               <img src="myspace-cats-images-02421.jpg">
+                    We are brothers
+               </img>
+ 
+               <img src="myspace-cats-images-0170.jpg">
+                     Don't disturb me ...
+               </img>
+      </page>
+ 
+ 
+  </pages></album>

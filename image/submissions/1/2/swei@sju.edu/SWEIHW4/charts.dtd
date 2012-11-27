@@ -1,0 +1,29 @@
+<!--  charts.dtd
+	  dtd for charts_dtd.xml
+      Jing Zhao
+      CSC 626: Web Technologies
+      Assignment 4
+      4/4/2012 -->
+      
+<!ELEMENT charts (chart*)>
+<!ATTLIST charts num_charts CDATA #REQUIRED>
+<!ELEMENT chart (title, columns, rows)>
+<!ATTLIST chart type (pie|bar|bubble|geo|gauge) #REQUIRED>
+<!ATTLIST chart width CDATA "800">
+<!ATTLIST chart height CDATA "600">
+<!ATTLIST chart align CDATA "left">
+<!ATTLIST chart id ID #REQUIRED>
+<!ELEMENT title (#PCDATA)>
+<!ELEMENT columns (column*)>
+<!ELEMENT rows (row*)>
+<!ELEMENT column EMPTY>
+<!ATTLIST column name CDATA #REQUIRED>
+<!ATTLIST column type (string | number) #REQUIRED>
+<!ELEMENT row EMPTY>
+<!ATTLIST row name CDATA #IMPLIED>
+<!ATTLIST row value CDATA #IMPLIED>
+<!ATTLIST row name1 CDATA #IMPLIED>
+<!ATTLIST row value1 CDATA #IMPLIED>
+<!ATTLIST row name2 CDATA #IMPLIED>
+<!ATTLIST row value2 CDATA #IMPLIED>
+<!ATTLIST row value3 CDATA #IMPLIED>
