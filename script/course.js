@@ -43,6 +43,10 @@ $(document).ready(function(){
                         //remove the element itself
                             $('#mask').remove();  
                     }); 
+                    $('.video-box').fadeOut(300,function(){
+                        $('.video-box').remove();
+                        
+                    });
 
                     /* may add function update the all course slideshow */
                     //constructAllCourse("course");
@@ -90,6 +94,36 @@ $(document).ready(function(){
             }
             
 	});
+        
+        /*handle video play*/
+        $('a.video').click(function() {
+
+            event.preventDefault();
+
+            //Getting the variable's value from a link 
+            var videofile = $(this).attr('href');
+            $('body').append('<div class="video-box"><a href="#" class="close"><img src="image/close_pop.png" class="btn_close" title="Close Window" alt="Close" /></a><video width="700" height="500" controls="controls"><source src="'+videofile+'" type="video/webm; codecs=vp8, vorbis"><source src="'+videofile+'" type="video/mp4; codecs=avc1.42E01E, mp4a.40.2"/><source src="'+videofile+'" type="video/ogg; codecs=theora, vorbis" /></video></div>');
+            //$('body').append('<div class="0popup-box"><a href="#" class="close"><img src="image/close_pop.png" class="btn_close" title="Close Window" alt="Close" /></a><video class="video-box" width="700" height="500" controls="controls"><source class="video-box" src="'+videofile+'" type="video/webm; codecs=vp8, vorbis"><source src	="'+videofile+'" type="video/mp4; codecs=avc1.42E01E, mp4a.40.2"/><source src="'+videofile+'" type="video/ogg; codecs=theora, vorbis" /></video></div>');
+            //$('body').append('<a href="#" class="close"><img src="image/close_pop.png" class="btn_close" title="Close Window" alt="Close" /></a>');
+            //Fade in the Popup
+            $('.video-box').fadeIn(300);
+
+
+            //Set the center alignment padding + border see css style
+            var popMargTop = ($('.video-box').height() + 24) /2; 
+            var popMargLeft = ($('.video-box').width() + 24) / 2; 
+
+            $('.video-box').css({ 
+                    'margin-top' : -popMargTop,
+                    'margin-left' : -popMargLeft
+            });
+
+            // Add the mask to body
+            //mask css define in popup.css
+            $('body').append('<div id="mask"></div>');
+            $('#mask').fadeIn(300);
+            return false;
+     });
 });
 
 

@@ -46,20 +46,11 @@
                 $res = $zip->open($targetFile);
                               
                 if($res === TRUE) {
-                  
+                    unlink($target_path."*");
                     $zip->extractTo($target_path); 
                     $zip->close();
                     unlink($targetFile);
-                    /* read the files and */
-                    if($handle = opendir($target_path)){
-                        while(false !==($entry = readdir($handle))){
-                            if($entry != "." && $entry != ".."){
-                                $query = "INSERT INTO submissionfile VALUES('$target_path$entry', '$submition_id', NOW(), '$user')";	
-                                $dbc->execute_query($query);
-                            }
-                        }
-                    }
-                    closedir($handle);
+                    
                     echo 'true';
                 }else {
                     echo 'failed';
@@ -78,7 +69,41 @@
 			$response = $response."\n\r";
 		}
 		echo $response;
-	}
+	}else if($action == 'getGrade'){
+         /*get grade from database */
+            $submitBy = $_REQUEST['submitername'];
+            $assign_id = $_REQUEST['assignid'];
+            $query = "SELECT score FROM submission WHERE submitted_by='$submitBy' and assign_id='$assign_id'";
+            //print $query;
+            $dbc->execute_query($query);
+            $result = $dbc->fetch_array();
+            if($result){
+                    echo $result[0]['score'];
+                }
+        
+        }else if($action == 'submitGrade'){
+            /*update database grade */
+           if(isset($_REQUEST['gradeValue']) && isset($_REQUEST['assignid']) && isset($_REQUEST['submitby'])){
+               $grade = $_REQUEST['gradeValue'];
+               $assign_id = $_REQUEST['assignid'];
+               $submitBy = $_REQUEST['submitby'];
+//               $query1 = "SELECT count(*) FROM submission WHERE submitted_by='$submitBy' and assign_id='$assign_id'";
+//               $dbc->execute_query($query1);
+//               $result = $dbc->fetch_array();
+//               if($result[0]['count(*)'] == 0){
+//                   $insertdata = "INSERT into submission VALUES(' ','$assign_id','$submitBy',' ','$grade')";
+//                   $dbc->execute_query($insertdata);
+//                   
+ //              }else{
+                   
+                   $updatedata = "UPDATE submission SET score='$grade' WHERE assign_id='$assign_id' and submitted_by='$submitBy'";
+                   $dbc->execute_query($updatedata);
+                  
+ //              }
+               echo "true";
+          }
+          
+        }
 	
 	
 	function createDir($path){

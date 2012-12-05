@@ -37,6 +37,19 @@
 	-moz-box-shadow:0px 0 50px #ccc; 
 	box-shadow:0px 0 50px #ccc;
 }
+.video-box{
+	
+
+	--width: 45%; /*cpontrol the popup box width */
+	--height: 60%; /*cpontrol the popup box height */
+	--background: #FFFFFF;
+	--padding: 10px; 	
+	--border: 2px solid #ddd;
+	position: fixed;
+	top: 50%; left: 50%;
+	z-index: 999;
+}
+
 
 /* Position of the close button */
 img.btn_close { 

@@ -136,12 +136,12 @@
 				$value = $doc->createTextNode($group_name);
 				$value = $child->appendChild($value);
 			}
-			
+		$xml_string = $doc->saveXML();
+		print $xml_string;	
 			
 		}
 		
-		$xml_string = $doc->saveXML();
-		print $xml_string;
+		
 			
 		$dbc->disconnect();
 	}

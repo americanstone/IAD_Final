@@ -32,13 +32,15 @@
         echo "<table width='70%' id='all-submissions'>";
          echo "<tr>";
         for($i = 0; $i < $rows; $i++){
-            if(($i + 1) % 5 === 0){
+            if(($i + 1) % 6 === 0){
                 echo "<tr>";
+            }else{
+                echo "<td><a class='submission' href='#' submitid='".$result[$i]['submission_id']."' submitby='".$result[$i]['submitted_by']."'>".$result[$i]['submitted_by']."</a></td>";
+                if(($i + 1) % 6 === 0){
+                    echo "</tr>";
+                }
             }
-            echo "<td><a class='submission' href='#' submitid='".$result[$i]['submission_id']."' submitby='".$result[$i]['submitted_by']."'>".$result[$i]['submitted_by']."</a></td>";
-            if(($i + 1) % 5 === 0){
-                echo "</tr>";
-            }
+            
         }
         echo "</tr>";
         echo "</table>";
@@ -99,6 +101,9 @@
                             <?php if($grader){ ?>
                             <button id = "grade" type="submit" file = "dummy">
                             <img src = "image/grade.png" width = "28px" hight = "28px" alt="grade" title="grade"/></button>
+                            Current grade: <input id="slidbar" type="range" name="points" min="0" max="100" value="0">
+                               <span id="range" style="color: red">0</span>
+                               
                             <?php } ?>
                         </div>
                         <div id = "directory-data"></div>

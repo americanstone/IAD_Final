@@ -228,7 +228,6 @@
                     $dbFilePath = "../image/assignments/".$course_id."/".$fileName;
                     //insert the new added assignment into table 'assignment'
                     $query = "INSERT INTO ASSIGNMENT VALUES(NULL, '$course_id', '$assignment_name', '$instruction', '$dbFilePath', NOW(), STR_TO_DATE('$due_date', '%Y-%m-%d'), '$submit_type')";
-                    //print $query;
                 }else{
                     $query = 'INSERT INTO ASSIGNMENT VALUES(NULL, "$course_id", "$assignment_name", "$instruction", NULL, NOW(), STR_TO_DATE($due_date, "%Y-%m-%d"), "$submit_type")';
                 }
@@ -274,7 +273,7 @@
 					$group_name = $result[$i]['NAME'];
 					//submission id consists of $course_id, $assign_id and $group_name
 					//$submission_id = $course_id."_".$assign_id."_".$group_name;
-					$query = "INSERT INTO SUBMISSION VALUES (NULL, '$assign_id', '$group_name', NULL, NULL)";
+					$query = "INSERT INTO SUBMISSION VALUES (NULL, '$assign_id', '$group_name', NULL, -1)";
 					$dbc->execute_query($query);
 					
 					//make a directory for each submission

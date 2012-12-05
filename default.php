@@ -11,7 +11,7 @@
 	// create an DB connection
 	$dbc = new DBconnect();
 	$dbc->connect();
-        $query = "SELECT C.title,C.description,C.course_img, U.name instructor, C.department, C.semester FROM course C, users U WHERE C.instructor = U.email order by C.department";
+        $query = "SELECT C.course_id,C.title,C.description,C.course_img, U.name instructor, C.department, C.semester FROM course C, users U WHERE C.instructor = U.email order by C.department";
         $dbc->execute_query($query);
         $result = $dbc->fetch_array();
 ?>
@@ -33,15 +33,13 @@
 <body>
 	<div>
 		<?php include("header.php") ?>
-		<div class = "content">
-				
-		</div>
+		 <br></br>
 
 		
-	</div>
-    <br></br>
+	
+   
     
-    <div>
+    <div class = "content">
             <table cellspacing="100" cellpadding="10" align="center">
                
                 <?php
@@ -51,16 +49,16 @@
                     $m = 0;
                     for($i = 0; $i < 2; $i++){
                         echo "<tr>";
-                        for($j =0; $j< 3; $j++){
+                        for($j =0; $j< 4; $j++){
                             
-                            echo "<td valign=top width=100px height=100px>";
+                            echo "<td style='border: 1px solid #EFE6D7' valign=top width=100px height=100px>";
                           
                             echo '<img src="'.$result[$m]['course_img'].'" />';
-                            echo "<p><span>".$result[$m]['title']."</span><br/>";
+                            echo "<div class='all-courses-text'><a href='course.php?course=".$result[$m]['course_id']."'><h3>".$result[$m]['title']."</h3></a><br/>";
                             //echo $result[$m]['description']."</br>";
                             echo $result[$m]['instructor']."</br>";
                             //echo $result[$m]['department']."</br>";
-                            echo $result[$m]['semester']."</p>";
+                            echo $result[$m]['semester']."</div>";
                            
 
                             $m++;
@@ -73,6 +71,7 @@
             </table>
             
         </div>
+</div>
 	
 </body>
 

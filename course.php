@@ -8,7 +8,7 @@
     $dbc->connect();
     
     //check if the user is the instructor of this course or not
-    if($_SESSION['email']){
+    if(isset($_SESSION['email'])){
         $email = $_SESSION['email'];
 
         $query = "SELECT user_id FROM usercourses WHERE role= 'Instructor' and course_id=".$course_id;
@@ -16,13 +16,17 @@
         $result = $dbc->fetch_array();
 
         $isInstructor = ($result[0]['user_id'] == $email);
+        
+        //check if the user enrolled the course or not
+        $query = "SELECT COUNT(*) COUNT FROM usercourses WHERE user_id ='".$_SESSION['email']."' AND course_id=".$course_id;
+        $dbc->execute_query($query);
+        $result = $dbc->fetch_array();
+        $enrolled  = ($result[0]['COUNT'] == 0);
+    }else {
+        $enrolled = false;
     }
     
-    //check if the user enrolled the course or not
-    $query = "SELECT COUNT(*) COUNT FROM usercourses WHERE user_id ='".$_SESSION['email']."' AND course_id=".$course_id;
-    $dbc->execute_query($query);
-    $result = $dbc->fetch_array();
-    $enrolled  = ($result[0]['COUNT'] == 0);
+    
     
     
     function courseDesc(){
@@ -84,8 +88,14 @@
                     echo "<ul>";
                     $curTopic = $result[$i]['topic'];
                 }
-
-                echo '<li><a href="'.$result[$i]['attachment'].'">'.$result[$i]['description'].'</a></li>';
+                $attachmentFile = explode(".",$result[$i]['attachment']);
+                if($attachmentFile[1] == "mp4" ||$attachmentFile[1] == "webm"){
+                    
+                    echo '<li><a class="video" href="'.$result[$i]['attachment'].'">'.$result[$i]['description'].'</a></li>';
+                }else{
+                    echo '<li><a href="'.$result[$i]['attachment'].'">'.$result[$i]['description'].'</a></li>';
+                }
+                
 
                 $i++;
             }
@@ -93,9 +103,40 @@
         }          
     }
 
+	function courseGroups(){
+	global $dbc, $course_id;
+	if($course_id){
+		$groupQuery="select name from groups where course_id =".$course_id;
+		//echo $groupQuery;
+		$dbc->execute_query($groupQuery);
+		$groupResult = $dbc->fetch_array($groupQuery);
+		if($groupResult){ 
+                    echo "<ul>";
+                    for($i=0; $i<sizeof($groupResult); $i++){
+                        
+                        echo "<li>".$groupResult[$i]['name'];
+                        $studentMemberQuery = "select name from usercourses join users on user_id = users.email where group_name = '".$groupResult[$i]['name']."' and course_id=".$course_id;
+                        $dbc->execute_query($studentMemberQuery);
+                        $membersResult = $dbc->fetch_array($studentMemberQuery);
+                        if($membersResult){
+                            echo "<ul>";
+                            for($k=0; $k<sizeof($membersResult); $k++){
+                                echo "<li><a href=''>".$membersResult[$k]['name']."</a></li>";
+                            }
+                            echo "</ul>";
+                        }        
+			echo"</li><br/>";
+                    }
+                    echo "</ul>";
+		}else{
+		  echo "No groups created yet.";
+		}
+		}
+	
+	}
     
     function courseAssignment(){
-        global $dbc, $course_id;
+        global $dbc, $course_id, $isInstructor;
         if($course_id){
             $query = "SELECT assign_id, name, assign_date, due_date, submit_type
                 FROM assignment WHERE course_id = '$course_id' ORDER BY assign_date";
@@ -109,6 +150,9 @@
             echo "<th>Assign date</th>";
             echo "<th>Due date</th>";
             echo "<th>Submission type</th>";
+            if(!$isInstructor){
+                echo "<th>Score</th>";
+            }
             echo "<th>Submission</th>";
             echo "</tr>";
             $background = true;
@@ -119,12 +163,33 @@
                     echo "<tr >";
                 }
                 $background = !$background;
+                $assign_id = $result[$i]['assign_id'];
+                $submit_type = $result[$i]['submit_type'];
                 echo "<td>Assignment ".($i+1)."</td>";
                 echo "<td><a class = 'assignment-instruction-window' href='#assignment-instruction' assign_id='".$result[$i]['assign_id']."'>".$result[$i]['name']."</a></td>";
                 echo "<td>".$result[$i]['assign_date']."</td>";
                 echo "<td>".$result[$i]['due_date']."</td>";
                 echo "<td>".$result[$i]['submit_type']."</td>";
-                echo "<td><a id = 'submission-id' href = 'submission.php?course=".$course_id."&assignment=".$result[$i]['assign_id']."&submittype=".$result[$i]['submit_type']."'>submission</a></td>";
+                if(!$isInstructor){
+                    if($submit_type == "Group"){
+                        $query="SELECT SCORE FROM SUBMISSION JOIN USERCOURSES ON SUBMITTED_BY = GROUP_NAME WHERE USER_ID='".$_SESSION['email']."' AND COURSE_ID = $course_id AND ASSIGN_ID = $assign_id";
+                        $dbc->execute_query($query);
+                        $queryResult = $dbc->fetch_array();
+                        $score = $queryResult[0]['SCORE'];
+                    } else {
+                        $query="SELECT SCORE FROM SUBMISSION WHERE SUBMITTED_BY ='".$_SESSION['email']."' AND ASSIGN_ID = $assign_id";
+                        $dbc->execute_query($query);
+                        $queryResult = $dbc->fetch_array();
+                        $score = $queryResult[0]['SCORE'];
+                        
+                    }
+                    if($score != -1){
+                        echo "<td>".$score."</td>";
+                    } else {
+                        echo "<td> - </td>";
+                    }
+                }
+                echo "<td><a id = 'submission-id' href = 'submission.php?course=".$course_id."&assignment=".$assign_id."&submittype=".$submit_type."'>submission</a></td>";
 
                 echo "</tr>";
             }
@@ -132,9 +197,11 @@
 
         }
     }
+	
+	
     
     function displayContents(){
-        global $isInstructor;
+        global $isInstructor, $course_id;
         //course content
         echo "<p style='margin-top: 30px'><h3>Content</h3></p>";
         if($isInstructor){
@@ -152,6 +219,16 @@
         echo " <div class ='course-assignment'>" ;
         courseAssignment();
         echo "</div>";
+		
+		echo "<p style='margin-top: 30px'><h3>Groups</h3></p>";
+		if($isInstructor){
+			echo '<a href="group.php?course='.$course_id.'">Edit group</a>';
+		}
+		
+		echo "<div class='course-assignment'>";
+		courseGroups();
+		echo"</div>";
+		
         
     }
 ?>

@@ -204,7 +204,7 @@ function fetchMyCourses(){
 
                     $(data).find("mycourse").each(function(){
                             var img = "http://localhost/sbls/";
-                            img = img + $(this).find("course_img").text();			
+                            img += $(this).find("course_img").text();			
 
                             thtml = thtml + "<div >";
                             thtml = thtml + "<table id = 'my-courses-row' align='center' width='100%' cellpadding='30px'>";
@@ -219,7 +219,9 @@ function fetchMyCourses(){
 
                             thtml = thtml + "<td width='20%'><div id = 'my-course-button'>";
                             thtml = thtml + "<form action='server/_course.php?action=unenroll&course=" + $(this).find("course_id").text()+ "' method='POST'>"
-                            thtml = thtml + "<input type='submit' class = 'normal-size-button' name='unenroll-course' value='Unenroll'/>";
+                            if($(this).find("role").text() != 'Instructor'){
+                               thtml = thtml + "<input type='submit' class = 'normal-size-button' name='unenroll-course' value='Unenroll'/>";
+                            }
                             thtml = thtml + "</form>"
                             thtml = thtml + "</div></td>";
                             thtml = thtml + "</div>";

@@ -1,5 +1,32 @@
 $(document).ready(function(){	
     
+    /*show value when change the sidebar */
+    
+    document.getElementById("range").innerHTML= $('#slidbar').attr('value');
+    $('#slidbar').change(function(){
+       document.getElementById("range").innerHTML= this.value;
+     
+    });
+    /*submit the grade when click grade buttom*/
+    
+    $('#grade').click(function(){
+        //var gradeValue = $('#range').html();
+         var submitby = $('#directory-data').attr('submit-by');
+         var assignid = $('.content').attr('assignment');
+        $.ajax({
+            url: "server/_submission.php",
+            data: {action: "submitGrade",gradeValue:$('#range').html(),submitby:submitby,assignid:assignid},
+            success: function(data){ 
+                if(data == "true"){
+                     $('#range').append('<img src ="image/gradeDone.png" width = "28px" hight = "28px" alt="gradedone" title="graded"/>');
+                }
+                /* do something if grade worng on server side*/
+            }
+        });
+        
+    });
+    
+    
     var uploadHandler = function(event){
 
          if($('#attachment').val()){
@@ -37,8 +64,28 @@ var dirHandler= function(event){
     var assignID = $('.content').attr('assignment');
     var submitType = $('.content').attr('submittype');
     var submitBy = $(this).attr('submitby');
-
-
+    /*add extra attr in order that specify whoes work*/
+    $('#directory-data').attr('submit-by',submitBy);
+    /* fecth grade value and update the siderbar value */
+    $.ajax({
+        url:"server/_submission.php",
+        data:{action:"getGrade",submitername:submitBy,assignid:assignID},
+        async: false,
+        success:function(data){
+           /*make sure return data is not null*/
+           if(data == -1){
+               $('#slidbar').attr('value',0);
+               $('#range').html("not grade yet");
+           }else{
+            $('#slidbar').attr('value',data);
+            $('#range').html(data);
+            }
+        }
+    });
+    
+    
+    
+    
     //send ajax request to get directory information of the submission
     $.ajax({
             url: "server/_submission.php",
@@ -104,7 +151,7 @@ var dirHandler= function(event){
             var line = new Array();
             $.ajax({
                     url: 'server/_comments.php',
-                    data: {action: 'lsall', file: filePath},
+                    data: {action: 'lsall', file: filePath, line: 0},
                     async: false,
                     dataType: 'json',
                     success: function(data){
@@ -203,22 +250,23 @@ var dirHandler= function(event){
                             dataType: 'json',
 
                             success: function(data){
-                                    var thtml = "<tr><th>Issue</th><th>Suggested Solution</th><th>Severity</th><th>Category</th><th>Raised by</th></tr>";
+                                    var thtml = "<tr><th>Line</th><th>Issue</th><th>Suggested Solution</th><th>Severity</th><th>Category</th><th>Raised by</th></tr>";
                                     for(var i = 0; i < data.length; i++){
                                             thtml += "<tr>";
+                                            thtml += "<td>" + data[i].line +"</td>";
                                             thtml += "<td>" + data[i].issue +"</td>";
                                             thtml += "<td>" + data[i].solution +"</td>";
                                             thtml += "<td>" + data[i].severity +"</td>";
                                             thtml += "<td>" + data[i].category +"</td>";
                                             thtml += "<td>" + data[i].author +"</td>";
-                                            thtml += "<td><a class='edit'><img src='image/edit.png'/></a></td>";
-                                            thtml += "<td><a class='delete'><img src='image/delete.png'/></a></td>";
+                                            //thtml += "<td><a class='edit'><img src='image/edit.png'/></a></td>";
+                                            thtml += "<td><a class='delete'><img src='image/delete.gif' comment='"+data[i].id+"'/></a></td>";
                                             thtml += "</tr>";
                                     }
                                     $('#comment-details').html(thtml);
                                     //$('.comments').css("top", event.pageY+15);
-                                    $('#comment-details').css("left", event.pageX);
-                                    $('#comment-details').css("top", event.pageY);
+                                    $('#comment-details').css("left", event.pageX-100);
+                                    $('#comment-details').css("top", event.pageY-100);
                             }
                     });
             };
@@ -226,12 +274,12 @@ var dirHandler= function(event){
                     $('#comment-details').css("left", "-999999px");
             };
             //$('a.comment').hover(mouseEnter, mounseLeave);
-            $('a.comment').mouseenter(mouseEnter);
+            $('a.comment').mouseover(mouseEnter);
 
-            $('#comment-details').mouseenter(function(event){
+           /* $('#comment-details').mouseenter(function(event){
                     $('#comment-details').css("left", event.pageX);
                     $('#comment-details').css("top", event.pageY);
-            });
+            });*/
             $('#comment-details').mouseleave(function(event){
                     $('#comment-details').css("left", "-999999px");
             });
@@ -282,6 +330,39 @@ var dirHandler= function(event){
     $('#upload-submission').on("click", uploadHandler);
     //fetch the updates for submission directory and file whenever the page is refreshed
     $('#refresh').trigger('click');
+    
+    $('#view-comment').on("click", function(){
+        var fileName = $(this).attr('file');
+        if(fileName != "dummy"){
+            $.ajax({
+                url: 'server/_comments.php',
+                data: {action: 'list', file: fileName, line: 0},
+                async: false,
+                dataType: 'json',
+                success: function(data){
+                    var thtml = "<tr><th>Line</th><th>Issue</th><th>Suggested Solution</th><th>Severity</th><th>Category</th><th>Raised by</th></tr>";
+                    for(var i = 0; i < data.length; i++){
+                            thtml += "<tr>";
+                             thtml += "<td>" + data[i].line +"</td>";
+                            thtml += "<td>" + data[i].issue +"</td>";
+                            thtml += "<td>" + data[i].solution +"</td>";
+                            thtml += "<td>" + data[i].severity +"</td>";
+                            thtml += "<td>" + data[i].category +"</td>";
+                            thtml += "<td>" + data[i].author +"</td>";
+                            //thtml += "<td><a class='edit'><img src='image/edit.png'/></a></td>";
+                            thtml += "<td><a class='delete'><img src='image/delete.gif' comment='"+data[i].id+"'/></a></td>";
+                            thtml += "</tr>";
+                    }
+                    $('#comment-details').html(thtml);
+                    //$('.comments').css("top", event.pageY+15);
+                    $('#comment-details').css("left", event.pageX-100);
+                    $('#comment-details').css("top", event.pageY-100);
+
+                }
+          });
+        }
+        
+    });
 	
 });
 
