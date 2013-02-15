@@ -35,7 +35,9 @@
                 $submition_id = fetchSubmissionID($course_id, $assignment_id, $submit_type);
                 $user = $_SESSION['email'];
                 $target_path = "../image/submissions/".$course_id."/".$assignment_id."/".$submition_path."/";
-                
+                /*remove files first */
+                rrmdir($target_path);
+                mkdir($target_path);
                 $fileName = $_FILES['attachment']['name'];
                 $fileContent = file_get_contents($_FILES['attachment']['tmp_name']);
                 $targetFile = $target_path.$fileName;
@@ -46,7 +48,8 @@
                 $res = $zip->open($targetFile);
                               
                 if($res === TRUE) {
-                    unlink($target_path."*");
+                    
+                    
                     $zip->extractTo($target_path); 
                     $zip->close();
                     unlink($targetFile);
@@ -87,14 +90,6 @@
                $grade = $_REQUEST['gradeValue'];
                $assign_id = $_REQUEST['assignid'];
                $submitBy = $_REQUEST['submitby'];
-//               $query1 = "SELECT count(*) FROM submission WHERE submitted_by='$submitBy' and assign_id='$assign_id'";
-//               $dbc->execute_query($query1);
-//               $result = $dbc->fetch_array();
-//               if($result[0]['count(*)'] == 0){
-//                   $insertdata = "INSERT into submission VALUES(' ','$assign_id','$submitBy',' ','$grade')";
-//                   $dbc->execute_query($insertdata);
-//                   
- //              }else{
                    
                    $updatedata = "UPDATE submission SET score='$grade' WHERE assign_id='$assign_id' and submitted_by='$submitBy'";
                    $dbc->execute_query($updatedata);
@@ -104,7 +99,24 @@
           }
           
         }
-	
+	 function rrmdir($dir) { 
+            if (is_dir($dir)) { 
+                $objects = scandir($dir); 
+                foreach ($objects as $object) { 
+                    if ($object != "." && $object != "..") { 
+                        if (filetype($dir."/".$object) == "dir"){
+                             rrmdir($dir."/".$object);  
+                        }else{
+                            //unset($dir."/".$object);
+                            unlink($dir."/".$object);
+                        }
+
+                    } 
+                } 
+                reset($objects); 
+                rmdir($dir); 
+            } 
+        } 
 	
 	function createDir($path){
 		if($handle = opendir($path)){

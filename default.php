@@ -11,7 +11,7 @@
 	// create an DB connection
 	$dbc = new DBconnect();
 	$dbc->connect();
-        $query = "SELECT C.course_id,C.title,C.description,C.course_img, U.name instructor, C.department, C.semester FROM course C, users U WHERE C.instructor = U.email order by C.department";
+        $query = "SELECT C.course_id,C.title,C.description,C.course_img, U.name, U.email, instructor, C.department, C.semester FROM course C, users U WHERE C.instructor = U.email order by C.department";
         $dbc->execute_query($query);
         $result = $dbc->fetch_array();
 ?>
@@ -56,7 +56,7 @@
                             echo '<img src="'.$result[$m]['course_img'].'" />';
                             echo "<div class='all-courses-text'><a href='course.php?course=".$result[$m]['course_id']."'><h3>".$result[$m]['title']."</h3></a><br/>";
                             //echo $result[$m]['description']."</br>";
-                            echo $result[$m]['instructor']."</br>";
+                            echo "<a style='font-size: 18px' href='userProfile.php?user=".$result[$m]['email']."'>".$result[$m]['name']."</a></br>";
                             //echo $result[$m]['department']."</br>";
                             echo $result[$m]['semester']."</div>";
                            

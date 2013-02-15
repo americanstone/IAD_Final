@@ -73,7 +73,11 @@
         <link rel = "stylesheet" href = "css/submission.css" type = "text/css" media = "screen" />
 	<title>Studio online LAB</title>
 	<script type="text/javascript" src="script/jquery-1.7.2.min.js"></script>
+        <?php if($grader) { ?>
 	<script type="text/javascript" src="script/submission.js"></script>
+        <?php }else { ?>
+        <script type="text/javascript" src="script/studentSubmission.js"></script>
+        <?php } ?>
 	
 </head>
 <body>

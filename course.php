@@ -32,7 +32,7 @@
     function courseDesc(){
         global $course_id, $dbc;
          if($course_id){                
-            $query = 'SELECT C.course_id,C.title,C.description,C.course_img,
+            $query = 'SELECT C.course_id,C.title,C.description,C.course_img,U.email,
                 U.name instructor, C.department, C.semester FROM course C, 
                 users U WHERE C.instructor = U.email and course_id="'.$course_id.'"';
             $dbc->execute_query($query);
@@ -43,7 +43,7 @@
                   echo "<tr>";
                   echo "<td width=55%>";
                   echo "<p><h2>".$result[0]['title']."</h2></p>";
-                  echo "<p><h3>".$result[0]['instructor']."</h3></p>";
+                  echo "<p><h3><a href='userProfile.php?user=".$result[0]['email']."'>".$result[0]['instructor']."</a></h3></p>";
                   echo "<p>".$result[0]['department']."</p>";
                   echo "<p>".$result[0]['semester']."</p>";
                   echo "</td>";
@@ -115,13 +115,13 @@
                     for($i=0; $i<sizeof($groupResult); $i++){
                         
                         echo "<li>".$groupResult[$i]['name'];
-                        $studentMemberQuery = "select name from usercourses join users on user_id = users.email where group_name = '".$groupResult[$i]['name']."' and course_id=".$course_id;
+                        $studentMemberQuery = "select name, email from usercourses join users on user_id = users.email where group_name = '".$groupResult[$i]['name']."' and course_id=".$course_id;
                         $dbc->execute_query($studentMemberQuery);
                         $membersResult = $dbc->fetch_array($studentMemberQuery);
                         if($membersResult){
                             echo "<ul>";
                             for($k=0; $k<sizeof($membersResult); $k++){
-                                echo "<li><a href=''>".$membersResult[$k]['name']."</a></li>";
+                                echo "<li><a href='userProfile.php?user=".$membersResult[$k]['email']."'>".$membersResult[$k]['name']."</a></li>";
                             }
                             echo "</ul>";
                         }        

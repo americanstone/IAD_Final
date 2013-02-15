@@ -65,7 +65,7 @@
 							</tr>
 						</table>
 					</form>
-					<table id="error_reg" >
+					<table align="center" id="error_reg" >
 						<tr >
 							<td id="info"> </td>
 						</tr>

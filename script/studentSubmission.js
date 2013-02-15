@@ -1,31 +1,5 @@
 $(document).ready(function(){	
     
-    /*show value when change the sidebar */
-    
-    document.getElementById("range").innerHTML= $('#slidbar').attr('value');
-    $('#slidbar').change(function(){
-       document.getElementById("range").innerHTML= this.value;
-     
-    });
-    /*submit the grade when click grade buttom*/
-    
-    $('#grade').click(function(){
-        //var gradeValue = $('#range').html();
-         var submitby = $('#directory-data').attr('submit-by');
-         var assignid = $('.content').attr('assignment');
-        $.ajax({
-            url: "server/_submission.php",
-            data: {action: "submitGrade",gradeValue:$('#range').html(),submitby:submitby,assignid:assignid},
-            success: function(data){ 
-                if(data == "true"){
-                     $('#range').append('<img src ="image/gradeDone.png" width = "28px" hight = "28px" alt="gradedone" title="graded"/>');
-                }
-                /* do something if grade worng on server side*/
-            }
-        });
-        
-    });
-    
     
     var uploadHandler = function(event){
          if($('#attachment').val()){
@@ -44,7 +18,6 @@ $(document).ready(function(){
                 if(xhr.readyState == 4){
                     if(xhr.status == 200) {
                         var message = xhr.responseText;
-                       //alert(message);
                         if(message == "true"){
                             //refresh the page
                             $('#refresh').trigger('click');
@@ -65,24 +38,6 @@ var dirHandler= function(event){
     var submitBy = $(this).attr('submitby');
     /*add extra attr in order that specify whoes work*/
     $('#directory-data').attr('submit-by',submitBy);
-    /* fecth grade value and update the siderbar value */
-    $.ajax({
-        url:"server/_submission.php",
-        data:{action:"getGrade",submitername:submitBy,assignid:assignID},
-        async: false,
-        success:function(data){
-           /*make sure return data is not null*/
-           if(data == -1){
-               $('#slidbar').attr('value',0);
-               $('#range').html("not grade yet");
-           }else{
-            $('#slidbar').attr('value',data);
-            $('#range').html(data);
-            }
-        }
-    });
-    
-    
     
     
     //send ajax request to get directory information of the submission
@@ -340,7 +295,6 @@ var dirHandler= function(event){
     });
 
     $('#refresh').on("click", dirHandler);
-    $('.submission').on("click", dirHandler);
     $('#upload-submission').on("click", uploadHandler);
     //fetch the updates for submission directory and file whenever the page is refreshed
     $('#refresh').trigger('click');

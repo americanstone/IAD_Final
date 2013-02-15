@@ -115,7 +115,6 @@ $('#create-assignment').on("click", function(event){
                 if(xhr.readyState == 4){
                         if(xhr.status == 200) {
                                 var message = xhr.responseText;
-                               alert(message);
                                 if(message == "true"){
                                    
                                         //close the create course pop up box
